@@ -8,6 +8,6 @@
   "analyze": false,
   "subdomain": "chat-example",
   "scripts": {
-    "start": "node serer.js"
+    "start": "node server.js"
   }
 }
