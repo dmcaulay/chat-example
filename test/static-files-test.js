@@ -26,4 +26,10 @@ describe('static', function() {
       done();
     });
   });
+  it('handles index.html', function(done) {
+    request({uri: 'http://localhost:' + port}, function(err, res, body) {
+      body.should.equal('<div>index</div>\n');
+      done();
+    });
+  });
 });
