@@ -9,5 +9,10 @@
   "subdomain": "chat-example",
   "scripts": {
     "start": "node server.js"
+  },
+  "dependencies": {
+    "mocha": "~1.0.3",
+    "request": "~2.9.202",
+    "should": "~0.6.3"
   }
 }
