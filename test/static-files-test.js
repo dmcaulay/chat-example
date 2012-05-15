@@ -5,9 +5,8 @@ var http = require('http')
 
 describe('static', function() {
   var port = 8081;
-  var server = null;
   before(function() {
-    server = http.createServer(staticFiles);
+    var server = http.createServer(staticFiles);
     server.listen(port);
   });
   it('serves static files', function(done) {
