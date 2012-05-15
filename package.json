@@ -13,6 +13,8 @@
   "dependencies": {
     "mocha": "~1.0.3",
     "request": "~2.9.202",
-    "should": "~0.6.3"
+    "should": "~0.6.3",
+    "socket.io-client": "~0.9.6",
+    "socket.io": "~0.9.6"
   }
 }
