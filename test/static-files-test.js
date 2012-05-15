@@ -10,9 +10,6 @@ describe('static', function() {
     server = http.createServer(staticFiles);
     server.listen(port);
   });
-  after(function() {
-    server.close();
-  });
   it('serves static files', function(done) {
     request({uri: 'http://localhost:' + port + '/todo.txt'}, function(err, res, body) {
       body.should.equal('- groceries\n');
