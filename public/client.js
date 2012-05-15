@@ -5,6 +5,7 @@ jQuery(function( $ ) {
       this.ENTER_KEY = 13;
       this.cacheElements();
       this.bindEvents();
+      this.setupSocketIo();
       this.$username.focus();
     },
     cacheElements: function() {
@@ -16,6 +17,13 @@ jQuery(function( $ ) {
     bindEvents: function() {
       this.$username.on('keyup', this.joinChat);
       this.$newMessage.on('keyup', this.sendMessage );
+    },
+    setupSocketIo: function()
+    {
+      this.socket = io.connect();
+      this.socket.on('joined', this.userJoined);
+      this.socket.on('message', this.messageReceived);
+      this.socket.on('left', this.userLeft);
     },
     getVal: function(e, cb) {
       var $el = $(e.target)
@@ -31,6 +39,7 @@ jQuery(function( $ ) {
         App.$newMessage.removeClass('hidden');
         App.$newMessage.focus();
         App.username = val;
+        App.socket.emit('joined', {username:val});
       });
     },
     sendMessage: function(e) {
@@ -41,6 +50,7 @@ jQuery(function( $ ) {
         };
         $el.val('');
         App.messageReceived(message);
+        App.socket.emit('message', message);
       });
     },
     userJoined: function(message) {
