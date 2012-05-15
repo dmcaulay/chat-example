@@ -1,7 +1,7 @@
 var http = require('http'),
   , request = require('request')
   , should = require('should')
-  , staticFiles = require('../lib/static-files')(__dirname + '/fixtures';
+  , staticFiles = require('../lib/static-files')(__dirname + '/fixtures');
 
 describe('static', function() {
   var port = 8081;
