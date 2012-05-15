@@ -10,7 +10,7 @@ describe('static', function() {
     server.listen(port);
   });
   it('should server static files', function(done) {
-    request {uri: "http://localhost:' + port + '/todo.txt", function(err, res, body) {
+    request {uri: "http://localhost:' + port + '/todo.txt"}, function(err, res, body) {
       body.should.equal('- groceries');
       done();
     });
