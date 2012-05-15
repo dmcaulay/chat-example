@@ -1,4 +1,4 @@
-var http = require('http'),
+var http = require('http')
   , request = require('request')
   , should = require('should')
   , staticFiles = require('../lib/static-files')(__dirname + '/fixtures');
@@ -10,7 +10,7 @@ describe('static', function() {
     server.listen(port);
   });
   it('serves static files', function(done) {
-    request {uri: "http://localhost:' + port + '/todo.txt"}, function(err, res, body) {
+    request({uri: "http://localhost:' + port + '/todo.txt"}, function(err, res, body) {
       body.should.equal('- groceries');
       done();
     });
