@@ -19,4 +19,11 @@ describe('static', function() {
       done();
     });
   });
+  it('returns internal server error and status 500 if it receives an invalid request', function(done) {
+    request({uri: 'http://localhost:' + port + '/invalid'}, function(err, res, body) {
+      res.statusCode.should.equal(500);
+      body.should.equal('Internal Server Error');
+      done();
+    });
+  });
 });
